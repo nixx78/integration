@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:feed="http://www.springframework.org/schema/integration/feed"
+	xmlns:int-http="http://www.springframework.org/schema/integration/http"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration/feed http://www.springframework.org/schema/integration/feed/spring-integration-feed.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/file http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/http 	http://www.springframework.org/schema/integration/http/spring-integration-http.xsd" profile="XML">
+
+	<int:inbound-channel-adapter channel="getGLEIFChannel" expression="#{T(lv.nixx.poc.si.Util).getCurrentDate()}">
+		<int:poller fixed-rate="1000" max-messages-per-poll="1"/>
+		<int:header name="datetime" expression="#{T(lv.nixx.poc.si.Util).getCurrentDate()}"></int:header>
+		<int:header name="filename" expression="#{T(lv.nixx.poc.si.Util).getCurrentDate()} + '-GLEIF-concatenated-file.zip'"></int:header>
+	</int:inbound-channel-adapter>
+
+	<int-http:outbound-gateway request-channel="getGLEIFChannel" http-method="GET" expected-response-type="byte[]"
+		url-expression="'https://www.gleif.org/lei-files/' + headers['datetime'] + '/GLEIF/' + headers['filename']"
+		reply-channel="gleifFile">
+	</int-http:outbound-gateway>
+
+	<file:outbound-channel-adapter id="gleifFile"  directory="/tmp/gleif/out" filename-generator-expression="headers['filename']" temporary-file-suffix=".tmp" mode="FAIL"/>
+
+
+</beans>
