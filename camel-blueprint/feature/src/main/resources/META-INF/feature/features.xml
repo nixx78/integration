@@ -19,6 +19,7 @@
 
 		<bundle>mvn:lv.nixx.poc.camel/model/${project.version}</bundle>
 		<bundle>mvn:lv.nixx.poc.camel/persistence/${project.version}</bundle>
+		<bundle>mvn:lv.nixx.poc.camel/util/${project.version}</bundle>
  		<bundle>mvn:lv.nixx.poc.camel/rest/${project.version}</bundle>
 
 	</feature>

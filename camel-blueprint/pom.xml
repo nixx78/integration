@@ -12,7 +12,8 @@
 		<module>feature</module>
 		<module>persistence</module>
 		<module>model</module>
+		<module>util</module>
 		<module>rest</module>
-	  </modules>
+	</modules>
 
 </project>

@@ -15,6 +15,7 @@
 
 	<properties>
 		<import.packages>
+			lv.nixx.poc.camel.util,
 			lv.nixx.poc.camel.model,
 			lv.nixx.poc.camel.persistence,
 			org.apache.camel;version="[2.17,2.20)",
@@ -40,6 +41,12 @@
 		<dependency>
 			<groupId>lv.nixx.poc.camel</groupId>
 			<artifactId>persistence</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>lv.nixx.poc.camel</groupId>
+			<artifactId>util</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

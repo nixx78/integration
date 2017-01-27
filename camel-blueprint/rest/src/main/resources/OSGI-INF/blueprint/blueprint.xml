@@ -12,9 +12,13 @@
 	
 	<reference id="personDAO" interface="lv.nixx.poc.camel.persistence.PersonDAO"/>
 	
+	<bean id="util" class="lv.nixx.poc.camel.util.MessageUtilInstance" />
+	
 	<bean id="helloService" class="lv.nixx.poc.camel.rest.HelloService">
 		<property name="dao" ref="personDAO" />
+		<property name="util" ref="util"/>
 	</bean>
+	
 
 	<camelContext id="camel" xmlns="http://camel.apache.org/schema/blueprint">
 		<routeBuilder ref="restRouteBuilder" />
