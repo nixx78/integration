@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>rest</artifactId>
+	<packaging>bundle</packaging>
+	<name>rest</name>
+
+	<parent>
+		<groupId>lv.nixx.poc.camel</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../parent</relativePath>
+	</parent>
+
+	<properties>
+		<import.packages>
+			lv.nixx.poc.camel.model,
+			lv.nixx.poc.camel.persistence,
+			org.apache.camel;version="[2.17,2.20)",
+			org.apache.camel.builder;version="[2.17,2.20)",
+			org.apache.camel.model;version="[2.17,2.20)",
+			org.codehaus.jackson.jaxrs,
+			javax.jws,
+			javax.jws.soap,
+			javax.xml.bind.annotation,
+			javax.xml.namespace,
+			javax.xml.ws,
+			javax.ws.rs;version="[2.0,3)",
+			javax.ws.rs.core;version="[2.0,3)",
+			org.osgi.service.blueprint;version="[1.0.0,2.0.0)",
+			org.osgi.framework;version="[1.5,2)",
+			org.osgi.framework.wiring;version="[1.0,2)
+		</import.packages>
+		<export.packages></export.packages>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>lv.nixx.poc.camel</groupId>
+			<artifactId>persistence</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+				<configuration>
+					<useBlueprint>true</useBlueprint>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+</project>

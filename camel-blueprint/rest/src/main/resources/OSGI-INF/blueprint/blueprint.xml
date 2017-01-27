@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/blueprint"
+	xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+	xsi:schemaLocation="
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd  
+       http://camel.apache.org/schema/blueprint/cxf http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd
+       http://camel.apache.org/schema/blueprint  http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
+	<bean id="restRouteBuilder" class="lv.nixx.poc.camel.rest.RestRouteBuilder" />
+	
+	<reference id="personDAO" interface="lv.nixx.poc.camel.persistence.PersonDAO"/>
+	
+	<bean id="helloService" class="lv.nixx.poc.camel.rest.HelloService">
+		<property name="dao" ref="personDAO" />
+	</bean>
+
+	<camelContext id="camel" xmlns="http://camel.apache.org/schema/blueprint">
+		<routeBuilder ref="restRouteBuilder" />
+	</camelContext>
+
+	<cxf:rsServer id="helloServiceEndpoint" address="/blueprint_sample_app"
+		serviceClass="lv.nixx.poc.camel.rest.HelloRestService"
+		loggingFeatureEnabled="true" loggingSizeLimit="200">
+	</cxf:rsServer>
+
+</blueprint>
