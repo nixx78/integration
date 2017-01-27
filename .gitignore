@@ -3,7 +3,7 @@
 /*/.settings/
 /*/log/
 /*/logs/
-/*/target/
+/**/target/
 .settings
 .classpath
 .project 
