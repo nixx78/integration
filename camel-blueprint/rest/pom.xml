@@ -4,7 +4,7 @@
 
 	<artifactId>rest</artifactId>
 	<packaging>bundle</packaging>
-	<name>rest</name>
+	<name>NiXX: Blueprint: PoC: rest</name>
 
 	<parent>
 		<groupId>lv.nixx.poc.camel</groupId>

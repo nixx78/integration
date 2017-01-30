@@ -4,7 +4,7 @@
 
 	<artifactId>util</artifactId>
 	<packaging>bundle</packaging>
-	<name>persistence</name>
+	<name>NiXX: Blueprint: PoC: util</name>
 
 	<parent>
 		<groupId>lv.nixx.poc.camel</groupId>

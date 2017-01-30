@@ -4,7 +4,7 @@
 
 	<artifactId>model</artifactId>
 	<packaging>bundle</packaging>
-	<name>model</name>
+	<name>NiXX: Blueprint: PoC: model</name>
 
 	<parent>
 		<groupId>lv.nixx.poc.camel</groupId>

@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>persistence</artifactId>
-	<packaging>bundle</packaging>
-	<name>NiXX: Blueprint: PoC: persistence</name>
+	<artifactId>integration_test</artifactId>
+	<packaging>jar</packaging>
+	<name>Integration Test</name>
 
 	<parent>
 		<groupId>lv.nixx.poc.camel</groupId>
@@ -13,21 +13,22 @@
 		<relativePath>../parent</relativePath>
 	</parent>
 
-	<properties>
-		<export.packages>
-				lv.nixx.poc.camel.persistence, 
-				org.slf4j,
-				org.slf4j.helpers
-		</export.packages>
-		<import.packages>lv.nixx.poc.camel.model</import.packages>
-	</properties>
-
 	<dependencies>
+
 		<dependency>
-			<groupId>lv.nixx.poc.camel</groupId>
-			<artifactId>model</artifactId>
-	  		<version>${project.version}</version>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.2</version>
 		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
+
 
 </project>
