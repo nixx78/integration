@@ -19,6 +19,7 @@ public class SEDAQueueSample {
 		            .routeId("firstRoute")
 		            .process(new Processor() {
 						@Override
+						
 						public void process(Exchange exchange) throws Exception {
 			            	System.out.println("--- BeanOne is called");
 						}
