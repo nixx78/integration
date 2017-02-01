@@ -20,11 +20,10 @@ public class RestRouteBuilder extends RouteBuilder {
 		.end();
 	}
 	
-	@SuppressWarnings("deprecation")
 	private void addSayHelloRoute() {
 		from("direct:sayHello")
 		.routeId("sayHelloRoute")
-		.beanRef("helloService", "processHelloMessage")
+		.bean("helloService", "processHelloMessage")
 		.removeHeader("Content-Length")
 		.end();
 	}
