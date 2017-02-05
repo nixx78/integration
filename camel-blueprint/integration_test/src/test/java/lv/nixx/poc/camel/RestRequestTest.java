@@ -4,7 +4,7 @@ import org.junit.Test;
 
 public class RestRequestTest {
 	
-	final String url = "http://localhost:8181/cxf/blueprint_sample_app/hello/1234";
+	final String url = "http://localhost:8181/cxf/blueprint_sample_app/hello/John";
 
 	@Test
 	public void testOnce() throws Exception {

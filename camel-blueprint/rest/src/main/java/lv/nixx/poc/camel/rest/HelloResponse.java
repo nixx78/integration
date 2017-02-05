@@ -2,14 +2,14 @@ package lv.nixx.poc.camel.rest;
 
 public class HelloResponse {
 	
-	private String messsage;
+	private String message;
 
-	public HelloResponse(String messsage) {
-		this.messsage = messsage;
+	public HelloResponse(String message) {
+		this.message = message;
 	}
 
-	public String getMesssage() {
-		return messsage;
+	public String getMessage() {
+		return message;
 	}
 	
 	

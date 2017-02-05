@@ -9,10 +9,9 @@
 
 	<bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" />
 	<bean id="restRouteBuilder" class="lv.nixx.poc.camel.rest.RestRouteBuilder" />
+	<bean id="util" class="lv.nixx.poc.camel.util.MessageUtilInstance" />
 	
 	<reference id="personDAO" interface="lv.nixx.poc.camel.persistence.PersonDAO"/>
-	
-	<bean id="util" class="lv.nixx.poc.camel.util.MessageUtilInstance" />
 	
 	<bean id="helloService" class="lv.nixx.poc.camel.rest.HelloService">
 		<property name="dao" ref="personDAO" />
