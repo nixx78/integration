@@ -1,10 +1,11 @@
 /.metadata/
 /.recommenders/
-/*/.settings/
-/*/log/
-/*/logs/
+/**/.settings/
+/**/log/
+/**/logs/
 /**/target/
-.settings
-.classpath
-.project 
+/**/.settings
+/**/.classpath
+/**/.project 
+/Servers/
 
